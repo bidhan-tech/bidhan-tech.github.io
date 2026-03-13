@@ -46,6 +46,7 @@ section {
     background: var(--main-color);
     backdrop-filter: blur(10px);
     transition: all 0.5s ease;
+    animation: fadeDown 2s ease forwards;
 }
 
 .logo {
@@ -80,12 +81,14 @@ section {
     display: none;
 }
 
+
 /* Home Section */
 
 .home {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fadeUp 2s ease;
 }
 
 .home-img img {
@@ -95,6 +98,7 @@ section {
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    
 }
 
 .home-img img:hover {
@@ -183,6 +187,11 @@ span {
     box-shadow: 0 0 1.6rem var(--main-color);
 }
 
+.home.active .home-img,
+.home.active .home-content{
+animation: fadeUp 2s ease forwards;
+
+}
 /* About Section */
 
 .about {
@@ -191,6 +200,7 @@ span {
     justify-content: center;
     gap: 2rem;
     background: var(--snd-bg-color);
+    
 }
 
 .about-img img {
@@ -201,6 +211,7 @@ span {
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    animation: fadeRight 2s ease forwards;
 }
 
 .about-img img:hover {
@@ -212,10 +223,12 @@ span {
 .heading {
     text-align: center;
     font-size: 6rem;
+    animation: fadeLeft 2s ease forwards;
 }
 
 .about-content {
     padding: 0 4rem;
+    animation: fadeLeft 2s ease forwards;
 }
 
 .about-content h2 {
@@ -232,10 +245,20 @@ span {
     margin: 2rem 0 3rem;
 }
 
+.about.active .heading,
+.about.active .about-content{
+animation: fadeText 2s ease forwards;
+}
+.about.active .about-img{
+animation: fadeRight 2s ease forwards;
+
+}
 /* Services Section */
 
 .services h2 {
     margin-bottom: 5rem;
+    animation: fadeText 2s ease;
+    
 }
 
 .services-container {
@@ -244,6 +267,7 @@ span {
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+    animation: fadeUp 2s ease;
 }
 
 .services-container .services-box {
@@ -275,7 +299,14 @@ span {
     margin: 1rem 0 3rem;
 }
 
+.services.active .services-box{
+animation: fadeUp 2s ease forwards;
 
+}
+.services.active h2{
+animation: fadeDown 2s ease forwards;
+
+}
 /* ******************Contact Section********************* */
 
 .contact {
@@ -285,6 +316,7 @@ span {
 .contact h2 {
     margin-bottom: 3rem;
     color: var(--main-color);
+    animation: fadeText 2s ease;
 }
 
 .contact form {
@@ -292,6 +324,7 @@ span {
     margin: 1rem auto;
     text-align: center;
     margin-bottom: 3rem;
+    animation: fadeUp 2s ease;
 }
 
 .contact form .input-box {
@@ -321,6 +354,13 @@ span {
 .contact form .btn {
     margin-top: 2rem;
 }
+.contact.active {
+  animation: fadeUp 2s ease forwards;
+}
+
+.contact.active .heading{
+    animation: fadeDown 2s ease forwards;
+}
 
 /* ******************Footer Section********************* */
 
@@ -330,6 +370,7 @@ span {
     width: 100%;
     padding: 40px 0;
     background-color: var(--snd-bg-color);
+    animation: fadeUp 2s ease forwards;
 }
 .footer .social{
     text-align: center;
@@ -361,6 +402,9 @@ span {
     text-align: center;
     font-size: 16px;
     color: var(--text-color);
+}
+.footer.active .social {
+  animation: fadeUp 2s ease forwards;
 }
 
 /* BreakPoint */
@@ -462,4 +506,61 @@ span {
     html{
         font-size: 50%;
     }
+}
+
+@keyframes fadeText{
+    from{
+        opacity:0;
+        transform: translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform: translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeDown{
+from{
+opacity:0;
+transform: translateY(-40px);
+}
+
+to{
+opacity:1;
+transform: translateY(0);
+}
 }
